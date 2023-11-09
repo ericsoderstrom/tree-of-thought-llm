@@ -15,9 +15,10 @@ if api_base != "":
     print("Warning: OPENAI_API_BASE is set to {}".format(api_base))
     openai.api_base = api_base
 
-@backoff.on_exception(backoff.expo, openai.error.OpenAIError)
+@backoff.on_exception(backoff.expo, openai.error.OpenAIError, max_tries=3)
 def completions_with_backoff(**kwargs):
-    return openai.ChatCompletion.create(**kwargs)
+    res = openai.ChatCompletion.create(**kwargs)
+    return res
 
 def gpt(prompt, model="gpt-4", temperature=0.7, max_tokens=1000, n=1, stop=None) -> list:
     messages = [{"role": "user", "content": prompt}]

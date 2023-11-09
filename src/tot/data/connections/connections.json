@@ -19,10 +19,10 @@
             "SPORTS"
         ],
         [
-            "WAYS TO PREPARE - DRILL, PRACTICE, STUDY, TRAIN",
-            "HOLLOW CYLINDERS - HOSE, PIPE, STRAW, TUBE",
-            "CLUE WEAPONS - CANDLESTICK, KNIFE, ROPE, WRENCH",
-            "“E-” THINGS - CIGARETTE, BIKE, TICKET, SPORTS"
+            ["WAYS TO PREPARE", "DRILL, PRACTICE, STUDY, TRAIN"],
+            ["HOLLOW CYLINDERS", "HOSE, PIPE, STRAW, TUBE"],
+            ["CLUE WEAPONS", "CANDLESTICK, KNIFE, ROPE, WRENCH"],
+            ["“E-” THINGS", "CIGARETTE, BIKE, TICKET, SPORTS"]
         ]
     ],
     [
@@ -45,10 +45,10 @@
             "WE"
         ],
         [
-            "NEVERTHELESS - HOWEVER, STILL, THOUGH, YET",
-            "REPEATED WORDS IN EXPRESSIONS - HEAR, KNOCK, THERE, TUT",
-            "WORDS ABBREVIATED WITH LETTERS - ARE, SEE, WHY, YOU",
-            "ROYAL ___ - FAMILY, FLUSH, JELLY, WE"
+            ["NEVERTHELESS", "HOWEVER, STILL, THOUGH, YET"],
+            ["REPEATED WORDS IN EXPRESSIONS", "HEAR, KNOCK, THERE, TUT"],
+            ["WORDS ABBREVIATED WITH LETTERS", "ARE, SEE, WHY, YOU"],
+            ["ROYAL ___", "FAMILY, FLUSH, JELLY, WE"]
         ]
     ],
     [
@@ -71,10 +71,10 @@
             "REACTOR"
         ],
         [
-            "IGNITE - BURN, KINDLE, LIGHT, TORCH",
-            "INFORMATION - DATA, INFO, INTEL, NEWS",
-            "SMALL WOODED AREA - DELL, GLEN, HOLLOW, VALLEY",
-            "THINGS WITH CORES - APPLE, COMPUTER, PLANET, REACTOR"
+            ["IGNITE", "BURN, KINDLE, LIGHT, TORCH"],
+            ["INFORMATION", "DATA, INFO, INTEL, NEWS"],
+            ["SMALL WOODED AREA", "DELL, GLEN, HOLLOW, VALLEY"],
+            ["THINGS WITH CORES", "APPLE, COMPUTER, PLANET, REACTOR"]
         ]
     ],
     [
@@ -97,10 +97,10 @@
             "WELL"
         ],
         [
-            "SOCIAL MEDIA ACTIONS - FOLLOW, LIKE, SHARE, SUBSCRIBE",
-            "USE A NEEDLE AND THREAD - DARN, HEM, SEAM, SEW",
-            "SHOWS SET IN HOSPITALS - ER, HOUSE, RATCHED, SCRUBS",
-            "EXPRESSIONS OF HESITATION - ERM, UH, UM, WELL",
+            ["SOCIAL MEDIA ACTIONS", "FOLLOW, LIKE, SHARE, SUBSCRIBE"],
+            ["USE A NEEDLE AND THREAD", "DARN, HEM, SEAM, SEW"],
+            ["SHOWS SET IN HOSPITALS", "ER, HOUSE, RATCHED, SCRUBS"],
+            ["EXPRESSIONS OF HESITATION", "ERM, UH, UM, WELL"]
         ]
     ],
     [
@@ -123,10 +123,10 @@
             "YELLOW"
         ],
         [
-            "FLOWERS - DAISY, ROSE, TULIP, VIOLET",
-            "SEEN ON A FARM - BARN, CHICKEN, FARMER, TRACTOR",
-            "HORROR DIRECTORS - ASTER, CARPENTER, CRAVEN, WAN",
-            "___ JACKET - DUST, LIFE, SPORTS, YELLOW"
+            ["FLOWERS", "DAISY, ROSE, TULIP, VIOLET"],
+            ["SEEN ON A FARM", "BARN, CHICKEN, FARMER, TRACTOR"],
+            ["HORROR DIRECTORS", "ASTER, CARPENTER, CRAVEN, WAN"],
+            ["___ JACKET", "DUST, LIFE, SPORTS, YELLOW"]
         ]
     ]
 ]
