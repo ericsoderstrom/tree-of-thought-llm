@@ -44,3 +44,75 @@ Input:
 {input}
 Output:
 '''
+
+cot_prompt = '''Solve a game of NYT Connections. Given an input of 16 distinct words, generate thoughts about possible descriptors which could describe groups of 4 words from the input set.
+Input:
+BUILD, GROW, SWELL, MOUNT, ACES, KEEN, NEATO, NIFTY, FOAM, FROTH, HEAD, LATHER, BUBBLE, GLOBE, MARBLE, PEARL
+Output:
+INCREASE : BUILD, GROW, SWELL, MOUNT
+EXCELLENT, IN OLD SLANG : ACES, KEEN, NEATO, NIFTY
+FINE BUBBLES : FOAM, FROTH, HEAD, LATHER
+SPHERICAL THINGS : BUBBLE, GLOBE, MARBLE, PEARL
+
+Input:
+FUTURE, PAST, PERFECT, PRESENT, GOODNESS, HEAVENS, LORD, MERCY, DRUMMER, LADY, RING, SWAN, CORN, COUGH, MAPLE, SIMPLE
+Output:
+GRAMMAR TENSE TERMS : FUTURE, PAST, PERFECT, PRESENT
+“GRACIOUS ME!” : GOODNESS, HEAVENS, LORD, MERCY
+12 DAYS OF CHRISTMAS : DRUMMER, LADY, RING, SWAN
+___ SYRUP : CORN, COUGH, MAPLE, SIMPLE
+
+Input:
+COLONY, HERD, PRIDE, SCHOOL, CRANNY, NICHE, NOOK, RECESS, CLASSIC, DEFINITIVE, MODEL, TEXTBOOK, BACKPACK, BIGWIG, DOWNTOWN, RAGTAG
+Output:
+ANIMAL GROUPS : COLONY, HERD, PRIDE, SCHOOL
+SMALL OPENING : CRANNY, NICHE, NOOK, RECESS
+PARADIGMATIC : CLASSIC, DEFINITIVE, MODEL, TEXTBOOK
+RHYMING COMPOUND WORDS : BACKPACK, BIGWIG, DOWNTOWN, RAGTAG
+
+Input:
+FOCUS, RING, SILENT, VIBRATE, DRIVE, INSPIRE, MOTIVATE, SPUR, CONNECTION, FEELINGS, SPARK, VIBE, CANDY, COPY, KNOCKS, SELTZER
+Output:
+CELL PHONE MODES : FOCUS, RING, SILENT, VIBRATE
+IMPEL : DRIVE, INSPIRE, MOTIVATE, SPUR
+ROMANTIC BEGINNINGS : CONNECTION, FEELINGS, SPARK, VIBE
+HARD ___ : CANDY, COPY, KNOCKS, SELTZER
+
+Input:
+CHILL, HANG, LOAF, LOUNGE, BANGER, BOP, GROOVE, JAM, MASH, ROAST, SCONE, TRIFLE, BIND, PICKLE, SCRAPE, SPOT
+Output:
+RELAX : CHILL, HANG, LOAF, LOUNGE
+CATCHY SONG : BANGER, BOP, GROOVE, JAM
+BRITISH CUISINE : MASH, ROAST, SCONE, TRIFLE
+STICKY SITUATION : BIND, PICKLE, SCRAPE, SPOT
+
+Input:
+{input}
+Output:
+'''
+
+value_prompt = '''Evaluate if four words fit the proposed category (sure/maybe/impossible).
+
+
+Evaluate if there exists a five letter word of some meaning that fit some letter constraints (sure/maybe/impossible).
+Category: FLOWERS
+Words: DAISY, ROSE, TULIP, VIOLET
+A daisy, rose, tulip, and violet are all flowers, and therefore related words.
+sure
+
+Category: BATHROOM ITEMS
+Words: FAMILY, FLUSH, JELLY, WE
+Although FLUSH is related to the bathroom it is not an item. FAMILY, WE, and JELLY are not related to bathroom items
+impossible
+
+Category: VARIOUS
+Words: DUST, LIFE, SPORTS, YELLOW
+The category "various" is too vague to know whether these four words are closely related or not
+maybe
+
+Category: FARM LIFE
+Words: BARN, CHICKEN, FARMER, TRACTOR
+A chicken, farmer, tractor and barn could all be found on a farm. These four words are closely related.
+sure
+{input}
+'''
