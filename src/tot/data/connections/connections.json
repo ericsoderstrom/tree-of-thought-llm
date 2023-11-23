@@ -128,5 +128,31 @@
             ["HORROR DIRECTORS", "ASTER, CARPENTER, CRAVEN, WAN"],
             ["___ JACKET", "DUST, LIFE, SPORTS, YELLOW"]
         ]
+    ],
+    [
+        [
+            "SCARF",
+            "PASS",
+            "MIRROR",
+            "CLARK",
+            "RAVINE",
+            "APPLE",
+            "COWL",
+            "WOLF",
+            "CRAVEN",
+            "CANYON",
+            "GORGE",
+            "BASHFUL",
+            "GULP",
+            "CHEN",
+            "QUEEN",
+            "GULCH"
+        ],
+        [
+            ["AREAS BETWEEN MOUNTAINS AND HILLS", "CANYON, GULCH, PASS, RAVINE"],
+            ["EAT VORACIOUSLY", "GORGE, GULP, SCARF, WOLF"],
+            ["FEATURED in 'SNOW WHITE'", "APPLE, BASHFUL, MIRROR, QUEEN"],
+            ["LETTER 'C' FOLLOWED BY A BIRD NAME", "CHEN, CLARK, COWL, CRAVEN"]
+        ]
     ]
 ]

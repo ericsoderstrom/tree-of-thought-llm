@@ -45,6 +45,7 @@ Input:
 Output:
 '''
 
+# 5-shot
 cot_prompt = '''Solve a game of NYT Connections. Given an input of 16 distinct words, generate thoughts about possible descriptors which could describe groups of 4 words from the input set.
 Input:
 BUILD, GROW, SWELL, MOUNT, ACES, KEEN, NEATO, NIFTY, FOAM, FROTH, HEAD, LATHER, BUBBLE, GLOBE, MARBLE, PEARL
@@ -91,28 +92,91 @@ Input:
 Output:
 '''
 
-value_prompt = '''Evaluate if four words fit the proposed category (sure/maybe/impossible).
+value_prompt = '''Given a category followed by a colon followed by four words that should match the category,
+evaluate if the four words fit the proposed category (sure/maybe/impossible).
 
-
-Evaluate if there exists a five letter word of some meaning that fit some letter constraints (sure/maybe/impossible).
-Category: FLOWERS
-Words: DAISY, ROSE, TULIP, VIOLET
+FLOWERS: DAISY, ROSE, TULIP, VIOLET
 A daisy, rose, tulip, and violet are all flowers, and therefore related words.
 sure
 
-Category: BATHROOM ITEMS
-Words: FAMILY, FLUSH, JELLY, WE
+BATHROOM ITEMS: FAMILY, FLUSH, JELLY, WE
 Although FLUSH is related to the bathroom it is not an item. FAMILY, WE, and JELLY are not related to bathroom items
 impossible
 
-Category: VARIOUS
-Words: DUST, LIFE, SPORTS, YELLOW
+VARIOUS: DUST, LIFE, SPORTS, YELLOW
 The category "various" is too vague to know whether these four words are closely related or not
 maybe
 
-Category: FARM LIFE
-Words: BARN, CHICKEN, FARMER, TRACTOR
+FARM LIFE: BARN, CHICKEN, FARMER, TRACTOR
 A chicken, farmer, tractor and barn could all be found on a farm. These four words are closely related.
 sure
+
+THINGS WITH LEAVES: Book, Table, Tea, Tree
+Trees have leaves, tea is made from leaves, a table leaf is an insert that can extend the width of the table,
+and leaf can refer to a page of a book as in "loose leafed pages"
+sure
+
 {input}
+'''
+
+propose_prompt = '''
+Let's play a game in which you are given a collection of words and your task is to find a set of four closely related words from within that group.
+The following are some examples of inputs and potential choices for output. Each line of output is preceded by a descriptor which applies to all four words in 
+that category followed by a colon followed by exactly four comma-separated words that belong to that category. Each word may belong to potentially more than
+one possible category.
+
+Input:
+CUTUP, CLOWN, JOKER, SENTENCE, HALLMARK, TRAIT, STAMP, FEATURE, TREE, BOOK, TABLE, TEA, LETTER, WORD, CARD, PARAGRAPH
+Possible groupings of four related words:
+UNIT OF LANGUAGE: LETTER, PARAGRAPH, SENTENCE, WORD
+THINGS RELATED TO MAIL: HALLMARK, STAMP, CARD, LETTER
+TRADEMARK: FEATURE, HALLMARK, STAMP, TRAIT
+FUNNY PERSON: CARD, CLOWN, CUTUP, JOKER
+THINGS WITH LEAVES: BOOK, TABLE, TEA, TREE
+
+Input:  
+ACT, BLUFF, CHARADE, FRONT, GANDER, GLANCE, GLIMPSE, LOOK, CLIFF, CRAG, LEDGE, RIDGE, PEAK, PEEK, PEKE, PIQUE
+Possible groupings of four related words:
+DECEIT: ACT, BLUFF, CHARADE, FRONT
+QUICK PEEK: GANDER, GLANCE, GLIMPSE, LOOK
+QUICK LOOK: GANDER, GLANCE, GLIMPSE, PEEK
+PARTS OF A MOUNTAIN: CLIFF, CRAG, LEDGE, RIDGE
+PARTS OF A MOUNTAIN: CLIFF, BLUFF, LEDGE, RIDGE
+HOMOPHONES:  PEAK, PEEK, PEKE, PIQUE
+
+Input:
+PLANKS, BEST, BANKS, CHEERS, LUNGES, DIPS, TAYLOR, WARREN, CARDS, REGARD, YANKS, NATS, MOSS, JAYS, THANKS, SQUATS
+Possible groupings of four related words:
+BODYWEIGHT EXERCISES: DIPS, LUNGES, PLANKS, SQUATS
+EMAIL SIGN-OFFS: BEST, CHEERS, REGARDS, THANKS
+M.L.B. TEAMS, FOR SHORT: CARDS, JAYS, NATS, YANKS
+ELIZABETHS: BANKS, MOSS, TAYLOR, WARREN
+
+Input:
+DANE, DEER, STEER, MOOSE, BUFFALO, LEAD, LAKE, HOGWASH, NONSENSE, WHITE, GUIDE, FISH, BULL, SEAL, ROT, DIRECT
+Possible groupings of four related words:
+BALDERDASH: BULL, HOGWASH, NONSENSE, ROT
+HELM: DIRECT, GUIDE, LEAD, STEER
+SINGLE/PLURAL ANIMALS: BUFFALO, DEER, FISH, MOOSE
+GREAT ___: DANE, LAKE, SEAL, WHITE
+
+Input:
+UGH, HAI, US, OK, PU, ICK, OUI, EW, DA, WEE, WE, W, JA, SI, WII, O
+Possible groupings of four related words:
+"GROSS!": EW, ICK, PU, UGH
+MAGAZINES: O, OK, US, W
+"YES" IN DIFFERENT LANGUAGES: HAI, JA, SI, DA
+HOMOPHONES: OUI, WE, WEE, WII
+
+Input:
+HAPPINESS, TADA, FEAR, FIRE, BEHOLD, CARPENTER, SECURE, ADAM, PRESTO, GET, RED, WIN, SURPRISE, ANGER, LAND, VOILA
+Possible groupings of four related words:
+BASIC EMOTIONS: ANGER, FEAR, HAPPINESS, SURPRISE
+BIT OF VOCAL FANFARE: BEHOLD, PRESTO, TADA, VOILA
+OBTAIN: GET, LAND, SECURE, WIN
+___ ANT: ADAM, CARPENTER, FIRE, RED
+
+Input:
+{input}
+Possible groupings of four related words:
 '''

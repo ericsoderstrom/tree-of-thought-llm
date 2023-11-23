@@ -15,7 +15,7 @@ if api_base != "":
     print("Warning: OPENAI_API_BASE is set to {}".format(api_base))
     openai.api_base = api_base
 
-@backoff.on_exception(backoff.expo, openai.error.OpenAIError, max_tries=3)
+@backoff.on_exception(backoff.expo, openai.error.OpenAIError, max_tries=10)
 def completions_with_backoff(**kwargs):
     res = openai.ChatCompletion.create(**kwargs)
     return res
